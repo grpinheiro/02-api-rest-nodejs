@@ -1,0 +1,4 @@
+noede_modules
+db/app.db
+.env
+node_modules
