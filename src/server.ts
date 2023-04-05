@@ -1,19 +1,16 @@
-import fastify from 'fastify'
-import crypto from 'node:crypto'
-import { knex } from './database'
-import { env } from './env'
-import { transactionsRoutes } from './routes/transactions'
+import cookie from '@fastify/cookie';
+import fastify from 'fastify';
 
-const app = fastify()
+import { env } from './env';
+import { transactionsRoutes } from './routes/transactions';
 
-app.register(transactionsRoutes, {
-  prefix: 'transactions',
-});
+const app = fastify();
+
+app.register(cookie);
+app.register(transactionsRoutes, { prefix: 'transactions' });
 
 app
-  .listen({
-    port: env.PORT,
-  })
+  .listen({ port: env.PORT })
   .then(() => {
-    console.log('HTTP Server Running')
-  })
+    console.log('HTTP Server Running');
+  });
