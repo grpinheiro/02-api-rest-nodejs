@@ -46,7 +46,9 @@ export async function transactionsRoutes(app: FastifyInstance){
     if (!sessionId){
       sessionId = randomUUID();
 
-      reply.cookie('sessionId', sessionId, { path: '/' });
+      reply.cookie('sessionId', sessionId, {
+        path: '/', maxAge: 1000 * 60 * 60 * 24 * 7, // 7 dias
+      });
     }
 
     await knex('transactions')
@@ -54,6 +56,7 @@ export async function transactionsRoutes(app: FastifyInstance){
         id: randomUUID(),
         title,
         amount: type === 'credit' ? amount : amount * -1,
+        session_id: sessionId,
       });
 
     return reply.status(201).send();
