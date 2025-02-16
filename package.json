@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "knex": "node --import=tsx ./node_modules/.bin/knex",
-    "test": "vitest"
+    "test": "vitest",
+    "build": "tsup src --out-dir build"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.6",
     "supertest": "^7.0.0",
+    "tsup": "^8.3.6",
     "tsx": "^3.12.3",
     "typescript": "^5.0.2",
     "vitest": "^3.0.5"
