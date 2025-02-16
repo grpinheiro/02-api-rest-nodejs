@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "knex": "node --no-warnings --loader tsx ./node_modules/.bin/knex"
+    "knex": "node --import=tsx ./node_modules/.bin/knex",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.14.0",
+    "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "eslint": "^8.36.0",
@@ -19,8 +21,10 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.6",
+    "supertest": "^7.0.0",
     "tsx": "^3.12.3",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "vitest": "^3.0.5"
   },
   "dependencies": {
     "@fastify/cookie": "^8.3.0",
